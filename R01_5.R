@@ -211,9 +211,7 @@ x4 <- seq(30, 0, by = -3)
 x4
 
 # 
-seq( 0 , 21 , length.out = 15)
-
-
+seq(0, 21, length.out = 15)
 
 # ENTER MULTIPLE VALUES WITH C #############################
 
@@ -275,10 +273,10 @@ qnorm(p, mean = 0 , sd = 1 )
 dnorm(x, mean = 0 , sd = 1 )
 
 # Setting the seed for reproducible results ####
-set.seed( 197)
+set.seed(1234)
 rnorm(n = 10 , mean = 0, sd = 1 )
 
-set.seed( 197)
+set.seed(1234)
 rnorm(n = 10 , mean = 0, sd = 1 )
 
 
@@ -286,6 +284,7 @@ rnorm(n = 10 , mean = 0, sd = 1 )
 
 # Clear environment
 rm(list = ls()) 
+
 
 # 4. Importing data----
 #
@@ -305,7 +304,10 @@ browseURL("http://j.mp/2aFZUrJ")
 # IMPORTING WITH RIO #######################################
 
 # CSV
+getwd()
+#
 setwd("~/git/FinDB_2020")
+
 rio_csv <- import("R01_Course_Files/R01_5_4_ImportingData_Datasets/mbb.csv")
 head(rio_csv)
 str(rio_csv)
@@ -315,7 +317,7 @@ rio_txt <- import("R01_Course_Files/R01_5_4_ImportingData_Datasets/mbb.txt")
 head(rio_txt)
 
 # Excel XLSX
-rio_xlsx <- import("R01_Course_Files/R01_5_4_ImportingData_Datasets/mbb.csv")
+rio_xlsx <- import("R01_Course_Files/R01_5_4_ImportingData_Datasets/mbb.xlsx")
 head(rio_xlsx)
 
 # DATA VIEWER ##############################################
