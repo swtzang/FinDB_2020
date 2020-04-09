@@ -14,14 +14,14 @@ summary(iris$Species)       # Categorical variable
 summary(iris$Sepal.Length)  # Quantitative variable
 summary(iris)               # Entire data frame
 
-
 # 2. describe()----
 
 # Installs pacman ("package manager") if needed
 if (!require("pacman")) install.packages("pacman")
 
 # Use pacman to load add-on packages as desired
-pacman::p_load(pacman, psych) 
+pacman::p_load(pacman, psych)
+library(pacman, psych)
 
 # LOAD DATA ################################################
 

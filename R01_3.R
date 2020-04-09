@@ -1,6 +1,7 @@
 # 1. Barchart ----
 
 # LOAD DATASETS PACKAGES ####
+rm(list = ls())
 
 library(datasets)
 
@@ -15,6 +16,7 @@ barplot(mtcars$cyl)             # Doesn't work
 
 # Need a table with frequencies for each category
 cylinders <- table(mtcars$cyl)  # Create table
+cylinders
 barplot(cylinders)              # Bar chart
 plot(cylinders)                 # Default X-Y plot (lines)
 
@@ -39,7 +41,7 @@ hist(iris$Petal.Width)
 par(mfrow = c(3, 1))
 
 # Histograms for each species using options
-hist(iris$Petal.Width [iris$Species == "setosa"],
+hist(iris$Petal.Width[iris$Species == "setosa"],
      xlim = c(0, 3),
      breaks = 9,
      main = "Petal Width for Setosa",

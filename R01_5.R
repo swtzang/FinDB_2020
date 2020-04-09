@@ -55,7 +55,7 @@ is.vector(v3)
 
 ## Matrix ##################################################
 
-m1 <- matrix(c(T, T, F, F, T, F), nrow = 2)
+m1 <- matrix(c(T, T, F, F, T, F), nrow = 2, byrow = T)
 m1
 
 m2 <- matrix(c("a", "b", 
@@ -102,32 +102,32 @@ list2
 
 # Goes to "least restrictive" data type
 
-(coerce1 <- c(1, "b", TRUE))
+coerce1 <- c(1, "b", TRUE)
 # coerce1  # Parenthese around command above make this moot
 typeof(coerce1)
 
 ## Coerce numeric to integer ###############################
 
-(coerce2 <- 5)
+coerce2 <- 5
 typeof(coerce2)
 
-(coerce3 <- as.integer(5))
+coerce3 <- as.integer(5)
 typeof(coerce3)
 
 ## Coerce character to numeric #############################
 
-(coerce4 <- c("1", "2", "3"))
+coerce4 <- c("1", "2", "3")
 typeof(coerce4)
 
-(coerce5 <- as.numeric(c("1", "2", "3")))
+coerce5 <- as.numeric(c("1", "2", "3"))
 typeof(coerce5)
 
 ## Coerce matrix to data frame #############################
 
-(coerce6 <- matrix(1:9, nrow= 3))
+coerce6 <- matrix(1:9, nrow= 3)
 is.matrix(coerce6)
 
-(coerce7 <- as.data.frame(matrix(1:9, nrow= 3)))
+coerce7 <- as.data.frame(matrix(1:9, nrow= 3))
 is.data.frame(coerce7)
 
 
@@ -209,6 +209,12 @@ x3 <- seq(10)
 # Specify change in values
 x4 <- seq(30, 0, by = -3)
 x4
+
+# 
+seq( 0 , 21 , length.out = 15)
+
+
+
 # ENTER MULTIPLE VALUES WITH C #############################
 
 # c = concatenate (or combine or collect)
@@ -239,6 +245,42 @@ x8
 # Repeats items in set
 x9 <- rep(c(TRUE, FALSE), each = 5)
 x9
+
+#
+rep(1:4, each = 2)
+
+# 3.1 Generate random variables ----
+n = 25
+# Generate n random numbers between the default values of 0 and 1 ####
+runif(n)
+
+# Generate n random numbers between 0 and 25 ####
+
+runif(n, min = 0, max = 25)
+
+# generate n random numbers between 0 and 25 (with replacement) ####
+sample(0:25, n, replace = TRUE)
+
+# generate n random numbers between 0 and 25 (without replacement) ####
+sample(0:25, n, replace = FALSE)
+
+# RANDOM NUMBERS from NORMAL DISTRIBUTION ####
+# generate n random numbers from a normal distribution with given mean & st. dev.
+rnorm(n, mean = 0 , sd = 1 )
+# generate CDF probabilities for value(s) in vector q
+pnorm(q , mean = 0 , sd = 1 )
+# generate quantile for probabilities in vector p
+qnorm(p, mean = 0 , sd = 1 )
+# generate density function probabilites for value(s) in vector x
+dnorm(x, mean = 0 , sd = 1 )
+
+# Setting the seed for reproducible results ####
+set.seed( 197)
+rnorm(n = 10 , mean = 0, sd = 1 )
+
+set.seed( 197)
+rnorm(n = 10 , mean = 0, sd = 1 )
+
 
 # CLEAN UP #################################################
 
