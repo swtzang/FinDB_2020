@@ -1,5 +1,6 @@
 # FinDB_2020
-## 
+## R02_1
+## Installing problems in package odbc 
 
 > install.packages("odbc")  
 Installing package into ‘/usr/local/lib/R/site-library’  
