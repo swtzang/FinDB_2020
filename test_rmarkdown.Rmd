@@ -1,0 +1,21 @@
+---
+title: "Untitled"
+author: "Tzang"
+date: "2020/4/10"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Example 1
+
+```{r}
+# create a variable
+a <- c(1, 2, 3)
+a
+```
+
+
+
