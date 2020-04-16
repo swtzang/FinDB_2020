@@ -1,5 +1,8 @@
 # Reference: Steph Locke, Data Manipulation in R
 # Sharon Machlis, Practical R in Mass Communication and Journalism
+# Learning goals: 
+# 1. install packages
+# 2. import excel files
 install.packages(c("tidyverse","ggplot2movies",
                    "nycflights13","odbc",
                    "writexl", "openxlsx",
@@ -49,6 +52,8 @@ setwd("sandydata")
 sandyfiles <- list.files()
 # method 1
 sandydf <- map_df(sandyfiles, rio::import)
+# or you can use:
+sandydf.1 <- map_df(list.files(pattern="*.csv"), read_csv)
 # method 2
 sandydf <- list.files() %>%
   map_df(rio::import)
@@ -59,4 +64,5 @@ sandydf2 <- bind_rows(sandydata)
 # 
 sandydf2 <- lapply(sandyfiles, rio::import) %>%
             bind_rows()
+#
 identical(sandydf, sandydf2)
