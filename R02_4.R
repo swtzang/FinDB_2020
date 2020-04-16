@@ -1,5 +1,6 @@
 # Reference: Steph Locke, Data Manipulation in R
 # Sharon Machlis, Practical R in Mass Communication and Journalism
+# https://github.com/smach/R4JournalismBook
 # Learning goals: 
 # 1. Working with column names
 # 2. Working with row names
