@@ -12,11 +12,11 @@
 iris %>%
   select(sepal_width=Sepal.Width, species=Species)
 
-
+#
 iris %>%
   rename(sepal_width=Sepal.Width, species=Species)
 
-
+#
 iris %>%
   select_all(str_to_lower)
 
@@ -51,7 +51,7 @@ iris %>%
 iris %>%
   select(starts_with("P"), everything())
 
-# 4. Changing the data----
+# 4. Changing the data: mutate ----
 
 iris %>%
   mutate(Sepal.Area = Sepal.Width * Sepal.Length)

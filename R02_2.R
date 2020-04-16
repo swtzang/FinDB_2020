@@ -6,6 +6,9 @@
 # 2. How to pipe? The use of dot "."
 
 # One assign at a time
+iris
+str(iris)
+
 is_setosa <- iris$Species=="setosa"
 setosa <- iris[is_setosa, ]
 setosa_area <- setosa$Sepal.Length * setosa$Sepal.Width
@@ -18,10 +21,13 @@ avg_area <- mean(iris$Sepal.Length[iris$Species=="setosa"]*
 # ctl+shift+M
 # <- 
 # alt+- 
+library(tidyverse)
 library(magrittr)
 #
+# toupper(letters)
 letters %>% toupper() %>% length()
 #
+head(iris)
 iris %>% head() %>% nrow()
 #
 iris_filtered <- iris %>% head()
@@ -36,7 +42,7 @@ iris_filtered3
 letterz <- sub("s","z", letters)
 letterz
 #
-my_lm <- lm(Sepal.Width~Sepal.Length, iris)
+my_lm <- lm(Sepal.Width ~ Sepal.Length, iris)
 #
 letters %>% sub("s","z", .) -> letterz
 letterz

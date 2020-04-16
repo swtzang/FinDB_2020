@@ -36,7 +36,7 @@ a <- c(1,2,3,3,3,4,5,5,6)
 n_distinct(a)
 # ~ means that we are writing a custom condition
 iris %>% select_if(~is.numeric(.) & n_distinct(.) > 30)
-
+#
 is_v_unique_num <- as_mapper(
   ~is.numeric(.) & n_distinct(.)>30
 )
@@ -49,7 +49,8 @@ is_v_unique_num(1:50)
 iris %>% slice(1:5)
 #
 iris %>% slice(-(1:floor(n()/3)))
-#
+
+# filter()
 iris %>% filter(Species=="virginica")
 #
 iris %>% filter(Species == "virginica", Sepal.Length > mean(Sepal.Length))

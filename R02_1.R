@@ -21,7 +21,9 @@ library(pacman)
 p_load(usethis, tidyverse, nycflights13, openxlsx, gapminder, ggplot2movies, writexl)
 #
 
-
+setwd("..")
+getwd()
+#
 iris2 <- read_csv("iris.csv")
 head(iris2)
 #
@@ -33,6 +35,7 @@ iris2<-read_csv("iris.csv",
 #
 library(readxl)
 iris2 <- read_excel("iris.xlsx")
+head(iris2)
 #
 iris2 <- read_excel("iris.xlsx",
                     col_names = c("sepal_length","sepal_width",
@@ -61,6 +64,9 @@ sandydf <- list.files() %>%
 # method 3
 # lapply(mylist, myfunction)
 sandydata <- lapply(sandyfiles, rio::import)
+class(sandydata)
+str(sandydata)
+
 sandydf2 <- bind_rows(sandydata)
 # 
 sandydf2 <- lapply(sandyfiles, rio::import) %>%
