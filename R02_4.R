@@ -1,4 +1,5 @@
 # Reference: Steph Locke, Data Manipulation in R
+# https://data-flair.training/blogs/descriptive-statistics-in-r/
 # Sharon Machlis, Practical R in Mass Communication and Journalism
 # https://github.com/smach/R4JournalismBook
 # Learning goals: 
