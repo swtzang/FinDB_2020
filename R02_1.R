@@ -24,7 +24,7 @@ p_load(usethis, tidyverse, nycflights13, openxlsx, gapminder, ggplot2movies, wri
 setwd("..")
 getwd()
 #
-iris2 <- read_csv("iris.csv")
+iris2 <- read_csv("../iris.csv")
 head(iris2)
 #
 iris2<-read_csv("iris.csv",
