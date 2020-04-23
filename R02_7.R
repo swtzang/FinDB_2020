@@ -5,7 +5,7 @@
 # https://github.com/smach/R4JournalismBook
 # https://zhuanlan.zhihu.com/p/34410229
 # Learning goals: 
-# 1. reshaping data
+#1. reshaping data: gather, spread
 
 p_load(tidyverse)
 #
