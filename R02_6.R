@@ -6,11 +6,14 @@
 # https://zhuanlan.zhihu.com/p/34410229
 # Learning goals: 
 # 1. Join: inner join, left join, full join
+# 2. bind_cols, bind_rows
 
 
 irisLk <- data.frame(
   species=c("setosa","virginica","VERSICOLOR"),
   colour=c("Red","Blue","Green"))
+
+irisLk
 #
 iris %>%
   left_join(irisLk)
@@ -67,7 +70,7 @@ to_merge %>%
 # many movies were released each year and the average duration
 movies %>%
   group_by(year) %>%
-  summarise(n=n(), avg_length=mean(length)) ->
+  summarise(n = n(), avg_length=mean(length)) ->
   movies_sum
 
 
@@ -96,10 +99,10 @@ movies %>%
                    paste0("movies",
                           format(now(), "%Y%m%d%H%M%S"),
                           ".csv"))
-
+#
 moviessample <- list.files(pattern = "movies") %>%
                 map_df(read_csv) 
-
+#
 str(moviessample)
 
 

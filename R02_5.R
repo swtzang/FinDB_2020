@@ -14,6 +14,8 @@ library(pacman)
 p_load(lubridate)
 
 # Summarise ----
+iris %>% summarise
+
 iris %>% 
   summarise(mean(Sepal.Width), mean(Sepal.Length))
 #
@@ -22,7 +24,7 @@ iris %>%
             Mean.Sepal.Length=mean(Sepal.Length))
 #
 iris %>%
-  summarise(n = n(), unique= n_distinct(Species),
+  summarise(n = n(), unique = n_distinct(Species),
             first = first(Species), last = last(Species),
             `51st` = nth(Species, 51))
 #
@@ -55,7 +57,8 @@ iris %>%
 #
 iris %>%
   group_by(Species) %>%
-  arrange(desc(Sepal.Length))
+  arrange(desc(Sepal.Length)) %>% 
+  ungroup
 
 #
 iris %>%
@@ -72,12 +75,13 @@ iris %>%
 #  mutate(Sepal.LengthN=n())
 
 # find out duplicates in a dataset
-iris %>%
+test <- iris %>%
   group_by_all() %>%
   summarise(nrows=n())
+  
 
 #
-iris %>%
+test1 <- iris %>%
   group_by_if(~n_distinct(.)<30) %>%
   summarise(n())
 
@@ -96,6 +100,8 @@ movies %>%
 
 # Q2. In a pipeline, find out what proportion of films are Action
 # movies, Action Comedies, Comedies, and neither Action or Comedy
+data(movies)
+
 movies %>% 
   group_by(Action, Comedy) %>% 
   summarise(n = n()) %>% 
@@ -115,6 +121,7 @@ x <- c(NA, 1:3, -1:1/0);
 x
 range(x)
 r <- range(x, na.rm = TRUE)
+r
 paste(r, collapse = "-")
 
 
