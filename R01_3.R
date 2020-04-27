@@ -89,6 +89,9 @@ plot(mtcars$wt, mtcars$mpg,
      xlab = "Weight (in 1000 pounds)",
      ylab = "MPG")
 
+# boxplot
+par(mar=c(7,5,1,1)) # more space to labels
+boxplot(iris,las=2)
 
 # LOAD DATA ################################################
 
