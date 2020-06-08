@@ -46,11 +46,11 @@ result = dbGetQuery(connect ,"SELECT * FROM mtcars1 WHERE cyl = 4")
 result
 dbDisconnect(connect)
 # connect to localhost 
-con = dbConnect(MySQL(), username = "root", password = "6886", host = "127.0.0.1")
+con = dbConnect(MySQL(), username = "root", password = "e121656070", host = "localhost")
 con = dbConnect(MySQL(), user = 'root', password = '6886',host = '-host 127.0.0.1 --port 3306')
 dbSendQuery(con,"create database database1")
 #
-localuserpassword <- "E_121656070"
-storiesDb <- dbConnect(RMariaDB::MariaDB(), user='test1', password= localuserpassword, 
+localuserpassword <- "e121656070"
+storiesDb <- dbConnect(RMariaDB::MariaDB(), user='root', password= localuserpassword, 
                        host='localhost')
 
