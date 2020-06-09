@@ -47,10 +47,16 @@ result
 dbDisconnect(connect)
 # connect to localhost 
 con = dbConnect(MySQL(), username = "root", password = "e121656070", host = "localhost")
-con = dbConnect(MySQL(), user = 'root', password = '6886',host = '-host 127.0.0.1 --port 3306')
+#
+con = dbConnect(MySQL(), user = 'root', password = '6886',host = 'localhost')
+#
 dbSendQuery(con,"create database database1")
 #
 localuserpassword <- "e121656070"
+localuserpassword <- '6886'
 storiesDb <- dbConnect(RMariaDB::MariaDB(), user='root', password= localuserpassword, 
                        host='localhost')
-
+#
+library(foreign)
+funda <- read.dta("funda.dta")
+msf <- read.dta("msf.dta")
