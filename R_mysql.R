@@ -59,4 +59,6 @@ storiesDb <- dbConnect(RMariaDB::MariaDB(), user='root', password= localuserpass
 #
 library(foreign)
 funda <- read.dta("funda.dta")
+class(funda)
+tail(funda)
 msf <- read.dta("msf.dta")
