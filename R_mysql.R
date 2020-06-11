@@ -28,17 +28,15 @@ library(xlsx)
 # connect to AWS database
 # 1. create connection first
 # Note: leave dbname blank:
-# connect = dbConnect(MySQL(), username = "swtzang", password = "68869104",
+# connect = dbConnect(MySQL(), username = "swtzang", password = "",
 #                     host = "stock-prices.c7v1lylhbacf.us-east-1.rds.amazonaws.com")
 # 2. create a database 'database1':
 # dbSendQuery(connect,"create database database1")
 
 # 3. create link to database1
-# connect = dbConnect(MySQL(), dbname = 'database1', username = "swtzang", password = "68869104",
-#                     host = "stock-prices.c7v1lylhbacf.us-east-1.rds.amazonaws.com")
 
-connect = dbConnect(MySQL(), dbname = 'database1', username = "swtzang", password = "68869104"
-                    ,host = "stock-prices.c7v1lylhbacf.us-east-1.rds.amazonaws.com")
+connect = dbConnect(MySQL(), dbname = 'database1', username = "", password = ""
+                    ,host = "")
 # dbSendQuery(connect,"create database database1")
 dbListTables(connect, "database1", database1)
 dbWriteTable(connect, "mtcars1", mtcars1)
@@ -46,14 +44,14 @@ result = dbGetQuery(connect ,"SELECT * FROM mtcars1 WHERE cyl = 4")
 result
 dbDisconnect(connect)
 # connect to localhost 
-con = dbConnect(MySQL(), username = "root", password = "e121656070", host = "localhost")
+con = dbConnect(MySQL(), username = "root", password = "", host = "localhost")
 #
-con = dbConnect(MySQL(), user = 'root', password = '6886',host = 'localhost')
+con = dbConnect(MySQL(), user = 'root', password = '',host = 'localhost')
 #
 dbSendQuery(con,"create database database1")
 #
-localuserpassword <- "e121656070"
-localuserpassword <- '6886'
+localuserpassword <- ""
+localuserpassword <- ''
 storiesDb <- dbConnect(RMariaDB::MariaDB(), user='root', password= localuserpassword, 
                        host='localhost')
 #
