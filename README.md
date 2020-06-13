@@ -1,5 +1,8 @@
 # FinDB_2020
 ## R02_1
+===========================================
+## R_MySQL.R
+### https://db.rstudio.com/best-practices/drivers/
 ## Installing problems in package odbc 
 
 > install.packages("odbc")  
@@ -23,6 +26,23 @@ Configuration failed because odbc was not found. Try installing:
  * rpm: unixODBC-devel (Fedora, CentOS, RHEL)
  * csw: unixodbc_dev (Solaris)
  * brew: unixodbc (Mac OSX)
+=======================================================
+
+## Try the following commands  
+ ### Install UnixODBC, which is required for all databases
+  ### Install the unixODBC library
+  apt-get install unixodbc unixodbc-dev 
+ ### Install common DB drivers (optional)
+  ### SQL Server ODBC Drivers (Free TDS)
+  apt-get install tdsodbc
+ ### PostgreSQL ODBC ODBC Drivers
+  apt-get install odbc-postgresql
+  ### MySQL ODBC Drivers
+  apt-get install libmyodbc
+ ### SQLite ODBC Drivers
+  apt-get install libsqliteodbc
+=========================================================== 
+
 To use a custom odbc set INCLUDE_DIR and LIB_DIR and PKG_LIBS manually via:
 R CMD INSTALL --configure-vars='INCLUDE_DIR=... LIB_DIR=... PKG_LIBS=...'
 
