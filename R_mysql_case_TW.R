@@ -2,13 +2,36 @@
 # 資料：TEJ IFRS 合併為主簡表累計
 
 rm(list = ls())
-library(foreign)
-
+#library(foreign)
+# install.packages("RODBC")
+install.packages("odbc")
+#install.packages("RMariaDB")
+#install.packages("RPostgreSQL")
+#install.packages("dbConnect")
+install.packages("DBI")
+#install.packages("gWidgets")
+install.packages("RMySQL")
+install.packages("xlsx")
+install.packages("RSQLite")
+#================================================
+#library(RODBC)
+library(odbc)
+#library(RPostgreSQL)
+library(RMariaDB)
+#library(dbConnect)
+library(DBI)
+#library(gWidgets)
+library(RMySQL)
+library(xlsx)
+library(RSQLite)
+#=================================================
 funda <- read.table("tej_finstmt_2010_2020.txt", sep = ",", header = TRUE)
 funda <- read.csv("tej_finstmt_2010_2020.csv", sep = ",", header = TRUE, stringsAsFactors = FALSE)
+# Use read_csv() so that some columns can be converted into numeric instead of character or strings.
 funda <- read_csv("tej_finstmt_2010_2020.csv")
 str(funda)
-nc <- c(7:11, 15:17)
+
+#nc <- c(7:11, 15:17)
 #cols_to_change = nc
 #for(i in nc){
 #  class(funda[, i]) = "numeric"
@@ -48,4 +71,4 @@ query <- "SELECT 公司, 年月, 季別, 資產總額, 負債總額, 股東權�
 result <- dbGetQuery(con,query)
 result
 str(result)
-
+#===============================================================================================
