@@ -86,3 +86,78 @@ head(i.setosa)
 summary(i.setosa$Petal.Length)
 hist(i.setosa$Petal.Length)
 
+# 4. explore package() ----
+# Reference: 
+# https://cran.r-project.org/web/packages/explore/vignettes/explore_mtcars.html
+pacman::p_load(pacman)
+p_load(explore)
+
+explore_tbl(mtcars)
+# describe(mtcars)
+# explore(mtcars)
+explore_all(mtcars)
+
+# 
+# Is there a difference between cars with 3,4 and 5 gears? #############
+# proportion of cars with 3, 4 and 5 gears 
+explore(mtcars, gear)
+
+# Check relation between some of the variables and gear ########
+p_load(tidyverse)
+
+mtcars %>% 
+  select(gear, mpg, hp, cyl, am) %>% 
+  explore_all(target = gear)
+
+# We see that 100% of cars with am = 0 (automatic) have 3 gears. 
+# All cars with am = 1 (manual) have 5 gears.
+
+# high MPG: define cars that have mpg (miles per gallon) > 25
+data <- mtcars %>% 
+  mutate(highmpg = if_else(mpg > 25, 1, 0, 0)) %>% 
+  select(-mpg)
+
+data %>% explore(highmpg)
+
+# What else is special about them?
+data %>% 
+  select(highmpg, cyl, disp, hp) %>% 
+  explore_all(target = highmpg)
+#
+data %>% 
+  select(highmpg, drat, wt, qsec, vs) %>% 
+  explore_all(target = highmpg)
+#
+data %>% 
+  select(highmpg, am, gear, carb) %>% 
+  explore_all(target = highmpg)
+
+# create decision tree
+data %>% 
+  explain_tree(target = highmpg) %>% 
+  .$obj
+# 
+# we have 6 highmpg out of 32 observations (18.75%)
+# 7 cars are identified as highmpg. 
+# 1 car is being wrongly classied as highmpg.
+# 6 cars are correctly classied as highmpg (0.8571)
+
+# 
+# https://bradleyboehmke.github.io/HOML/DT.html
+# we use rpart()
+p_load(rpart, rpart.plot)
+#
+cart.model<- rpart(highmpg ~. , 
+                   data = data, 
+                   method = "anova")
+cart.model
+
+#
+prp(cart.model,         # model
+    faclen = 0,           # no abbrev. for variables
+    fallen.leaves = TRUE, # vertical leaves
+    shadow.col = "gray",  # shadow
+    # number of correct classifications / number of observations in that node
+    extra=1)  
+
+
