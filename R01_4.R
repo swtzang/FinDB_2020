@@ -160,4 +160,10 @@ prp(cart.model,         # model
     # number of correct classifications / number of observations in that node
     extra=1)  
 
+# There seems to be a very strong correlation between wt (weight) and “high mpg”. 
+# Cars with a low weight are much more likely to have “high mpg”.
+data %>% explore(wt, target = highmpg)
+
+#
+mtcars %>% explore(wt, mpg)
 
